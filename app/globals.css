@@ -1,0 +1,170 @@
+:root {
+  --bg:      #12100A;
+  --surface: #C28751;
+  --primary: #FFC72C;
+  --accent:  #D7231F;
+  --text:    #F5F0E8;
+  --muted:   #A87B52;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: "Raleway", sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5, h6 { font-family: "DM Serif Display", sans-serif; }
+
+.reveal { transition: opacity 0.65s ease, transform 0.65s ease; }
+.is-hidden { opacity: 0; transform: translateY(24px); }
+.visible { opacity: 1; transform: translateY(0); }
+.page-enter { animation: fadeSlideIn 0.4s ease both; }
+@keyframes fadeSlideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.card-hover { transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1); }
+.card-hover:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -16px #FFC72C50; }
+.btn-lift { transition: transform 0.2s ease; }
+.btn-lift:hover { transform: scale(1.02); }
+.btn-lift:active { transform: scale(0.98); }
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+  .stack-mobile { flex-direction: column !important; }
+  .full-mobile { width: 100% !important; }
+}
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+.skeleton { background: linear-gradient(90deg, #C2875180 25%, #C28751 50%, #C2875180 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 8px; }
+
+/* ============================================================
+   ENHANCED ANIMATION UTILITIES FOR MACDONALD D2C
+   ============================================================ */
+
+/* Scroll reveal — elements visible by default (no blank flashes) */
+.reveal { 
+  transition: opacity 0.6s ease, transform 0.6s ease; 
+}
+.reveal.is-hidden { 
+  opacity: 0; 
+  transform: translateY(28px); 
+}
+.reveal.visible { 
+  opacity: 1 !important; 
+  transform: translateY(0) !important; 
+}
+
+/* Toast & notification slide-in */
+@keyframes slideInRight { 
+  from { 
+    opacity: 0; 
+    transform: translateX(60px); 
+  } 
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  } 
+}
+
+/* Premium button hover with lift & shadow depth */
+.btn-lift { 
+  transition: transform 0.15s cubic-bezier(0.4,0,0.2,1), box-shadow 0.15s cubic-bezier(0.4,0,0.2,1); 
+  cursor: pointer; 
+}
+.btn-lift:hover { 
+  transform: scale(1.02); 
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18); 
+}
+.btn-lift:active { 
+  transform: scale(0.98); 
+}
+.btn-lift:focus-visible { 
+  outline: 2px solid currentColor; 
+  outline-offset: 3px; 
+}
+
+/* Card hover with layered shadow for depth */
+.card-hover { 
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1); 
+}
+.card-hover:hover { 
+  transform: translateY(-4px); 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08), 0 20px 48px rgba(0,0,0,0.06); 
+}
+
+/* Shimmer loading skeleton animation */
+@keyframes shimmer { 
+  0% { background-position: -200% 0; } 
+  100% { background-position: 200% 0; } 
+}
+.skeleton { 
+  background: linear-gradient(90deg, #C2875180 25%, #C28751 50%, #C2875180 75%); 
+  background-size: 200% 100%; 
+  animation: shimmer 1.5s infinite; 
+  border-radius: 8px; 
+}
+
+/* Smooth page fade transition */
+@keyframes pageFade { 
+  from { opacity: 0; } 
+  to { opacity: 1; } 
+}
+.page-enter { 
+  animation: pageFade 0.4s cubic-bezier(0.4,0,0.2,1); 
+}
+
+/* Mobile responsive helpers */
+@media (max-width: 768px) {
+  .hide-mobile { 
+    display: none !important; 
+  }
+  .stack-mobile { 
+    flex-direction: column !important; 
+  }
+  .full-mobile { 
+    width: 100% !important; 
+  }
+  .text-center-mobile { 
+    text-align: center !important; 
+  }
+}
+
+/* Staggered reveal for card grids (add .reveal-stagger to grid parent) */
+.reveal-stagger > * { 
+  opacity: 0; 
+  transform: translateY(20px); 
+  transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1); 
+}
+.reveal-stagger.visible > *:nth-child(1) { 
+  opacity: 1; 
+  transform: translateY(0); 
+  transition-delay: 0ms; 
+}
+.reveal-stagger.visible > *:nth-child(2) { 
+  opacity: 1; 
+  transform: translateY(0); 
+  transition-delay: 80ms; 
+}
+.reveal-stagger.visible > *:nth-child(3) { 
+  opacity: 1; 
+  transform: translateY(0); 
+  transition-delay: 160ms; 
+}
+.reveal-stagger.visible > *:nth-child(4) { 
+  opacity: 1; 
+  transform: translateY(0); 
+  transition-delay: 240ms; 
+}
+.reveal-stagger.visible > *:nth-child(5) { 
+  opacity: 1; 
+  transform: translateY(0); 
+  transition-delay: 320ms; 
+}
+.reveal-stagger.visible > *:nth-child(6) { 
+  opacity: 1; 
+  transform: translateY(0); 
+  transition-delay: 400ms; 
+}
+
+/* Keyboard focus rings (accessibility — visible for keyboard users only) */
+*:focus-visible { 
+  outline: 2px solid var(--primary, #FFC72C); 
+  outline-offset: 3px; 
+  border-radius: 4px; 
+}
+*:focus:not(:focus-visible) { 
+  outline: none; 
+}
